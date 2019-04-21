@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>三级联动（原生）</title>
+</head>
+<body>
+    <select name="" id="one">
+        <option value="">请输入省份</option>
+    </select>
+    <select name="" id="two">
+        <option value="">请输入市</option>
+    </select>
+    <select name="" id="three">
+        <option value="">请输入区</option>
+    </select>
+    <script>
+        var arr1=[{"id":"1","value":"北京"},{"id":"2","value":"上海"},{"id":"3","value":"重庆"},{"id":"4","value":"天津"},{"id":"5","value":"山东"}];
+        var oone=document.getElementById("one");
+        var otwo=document.getElementById("two");
+        var three=document.getElementById("three");
+
+        var str = "<option>请输入省份</option>";
+        otwo.disabled = true;
+        three.disabled = true;
+        
+        for (let i = 0; i < arr1.length; i++) {
+             str += "<option value="+ arr1[i].id+">"+arr1[i].value+"</option>";
+            
+        }
+        if(arr1.length >= 1){
+            oone.innerHTML = str;
+        }
+
+        var arr2 = {
+            '1':['101@北京'],
+            '2':['201@上海'],
+            '3':['301@重庆'],
+            '4':['401@天津'],
+            '5':['501@济南','502@青岛']
+        };
+
+        oone.onchange = function () {
+            var val = this.value;
+            if( val == '' || val == "请输入省份" ){
+                otwo.innerHTML = "<option>请输入市</option>";
+                three.innerHTML = "<option>请输入区</option>";
+                otwo.disabled = true;
+                three.disabled = true;
+                return;
+            }
+            var arrA = arr2[val];
+            var StrCity = "<option>请输入市</option>";
+            for (let j = 0; j < arrA.length; j++) {
+                var aa = arrA[j].split("@");
+                StrCity += "<option value="+aa[0]+">"+aa[1]+"</option>"
+                
+            }
+            otwo.innerHTML = StrCity;
+            otwo.disabled = false;
+            three.innerHTML = "<option>请输入市</option>";
+            three.disabled = 'disabled';
+        }
+
+        var arr3 = {
+            '101':['朝阳区','昌平区'],
+            '201':['宝山区','浦东区'],
+            '301':['不知道'],
+            '401':['真的不知道'],
+            '501':['市中区','历下区','槐荫区'],
+            '502':['市南区','市北区','崂山区'] 
+        }
+        otwo.onchange = function () {
+            var valu = this.value;
+            if( valu == '' || valu == '请输入市'){ 
+                three.innerHTML = "<option>请输入区</option>";
+                three.disabled = true;
+                return;
+            }
+            var len = arr3[valu].length;
+            var Str2 = "<option>请输入区</option>";
+            for (let l = 0; l < len; l++) {
+                Str2 += "<option value="+arr3[valu][l]+">"+arr3[valu][l]+"</option>"
+            }
+            three.innerHTML = Str2;
+            three.disabled = false;
+        }
+
+    </script>
+</body>
+</html>
