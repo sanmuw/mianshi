@@ -1,0 +1,42 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
+    <body>
+        
+    </body>
+        <script>
+            function deepcopy(obj) {
+                let objClone = Array.is(obj)?[]:{}
+                if(obj && typeof obj === 'object'){
+                    for (key in obj) {
+                        if (obj.hasOwnProperty(key)) {
+                            if(obj[key] && typeof obj[key] === 'object'){
+                                objClone[key] = deepcopy(obj[key])
+                            }else{
+                                objClone[key] = obj[key] 
+                            }
+                            
+                        }
+                    }
+                }
+                return objClone;
+            }
+
+            function deepClone(obj) {
+                let _obj = JSON.stringify(obj),
+                    objClone = JSON.parse(_obj);
+                    return objClone
+            }
+
+            function deepCy(obj) {
+                let objArr = Array.isArray(obj)?[]:{}
+                $.extend(true, objArr, obj) 
+
+            }
+        </script>
+    </html>

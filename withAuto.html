@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>宽度自适应</title>
+	<style>
+		.father{
+			height: 200px;
+			background-color: #fff;
+
+		}
+
+		.son {
+			
+		}
+		.father > .wid{
+			float: left;
+			width:100px;
+			background-color: #eee;
+
+		}
+
+		.father >.widthauto{
+			margin-left: 100px;
+			background-color: #62efee;
+		}
+
+
+
+		.fatherTwo{
+			display: flex;
+			height: 200px
+		}
+		.fatherTwo > .wid {
+			width: 100px;
+			background-color: red;
+		}
+
+		.fatherTwo > .widthauto {
+			flex: 1;
+			background-color: yellow;
+		}
+
+
+
+		.fatherThree {
+			height: 200px;
+			position: relative;
+		}
+		.fatherThree > .wid {
+			display: inline-block;
+			width: 100px;
+			background-color: blue;
+		}
+		.fatherThree > .widthauto {
+			display: inline-block;
+			position: absolute;
+			background-color: orange;
+			left: 100px;
+			right: 0;
+		}
+
+	</style>
+</head>
+<body>
+	<h1>方法一</h1>
+	<div class="father">
+		<div class="son wid">left</div>
+		<div class="son widthauto">right</div>
+	</div>
+
+		<h1>方法二(flex)</h1>
+	<div class="fatherTwo">
+		<div class="sonTwo wid">left</div>
+		<div class="sonTwo widthauto">right</div>
+	</div>
+
+
+		<h1>方法三(display+相对定位绝对定位方法)</h1>
+	<div class="fatherThree">
+		<div class="sonTwo wid">left</div>
+		<div class="sonTwo widthauto">right</div>
+	</div>
+
+</body>
+</html>
