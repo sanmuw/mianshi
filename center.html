@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>水平垂直居中问题</title>
+	<style>
+		.father {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+	      width: 300px;
+    		height:300px;
+		    background: #FD0C70;
+		}
+      .father  .son {
+			background-color: yellow;''
+      } 
+
+
+		.fatherTwo {
+			position: relative;
+			width: 300px;
+			height: 300px;
+			background-color: #ddd
+		}
+		.fatherTwo .son {
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%,-50%);
+			background-color: #fff;
+		}
+
+		.fatherThree {
+			display: table;
+			width: 300px;
+			height: 300px;
+			background-color: #163eea;			
+		}
+		.fatherThree > .son {
+			display: table-cell;
+			vertical-align: middle;
+			text-align: center;
+			color: #fff;
+		}
+
+		.fatherFour {
+			height: 300px;
+			width: 300px;
+			text-align: center;
+			background-color: #fd0c70
+		}
+		.fatherFour span {
+			display: inline-block;
+			width: 0;
+			height: 100%;
+			vertical-align: middle;
+			zoom:1;
+			*display: inline;
+		} 
+		.fatherFour .son {
+			display: inline-block;
+			color: #fff;
+			zoom:1;
+			*display: inline;
+		}
+
+
+	</style>
+</head>
+<body>
+		<h1>方法一(flex)</h1>
+		<div class="father">
+			<div class="son">方法一(flex)</div>
+		</div>
+
+		<h1>方法二</h1>
+		<div class="fatherTwo">
+			<div class="son">方法二transform: translate(-50%,-50%)</div>
+		</div>
+
+		<h1>方法三</h1>
+		<div class="fatherThree">
+			<div class="son">方法三 display:table</div>
+		</div>
+
+		<h1>方法四</h1>
+		<div class="fatherFour">
+			<span></span>
+			<div class="son">方法四 (span)</div>
+		</div>
+
+		<h1>方法五</h1>
+		<div class="fatherfive">
+			
+			<div class="son">方法五 (绝对定位)</div>
+		</div>
+</body>
+</html>
