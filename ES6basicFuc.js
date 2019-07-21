@@ -4,7 +4,7 @@ function Tree(left,present,right){
   this.present = present;
   this.right = right;
 }
-
+ 
 function make(arr){
   if(!Array.isArray(arr)){console.log("请传入数组")}
   if(arr.lengtj == 1){return new Tree(null,arr[0],null)}
