@@ -28,6 +28,7 @@ for (let node of inorder(tree)) {
 
 //拍平数组
 function oneDimensional(arr){
+  let newArr=[];
   if(Array.isArray(arr)){
     for(let i=0; i < arr.length; i++) {
       oneDimensional(arr[i]);
@@ -37,3 +38,5 @@ function oneDimensional(arr){
   }
   return newArr;
 }
+
+
