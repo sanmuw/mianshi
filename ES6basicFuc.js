@@ -39,4 +39,12 @@ function oneDimensional(arr){
   return newArr;
 }
 
+function oneDimensional(arr){
+  let newArr=[];
+  //ES6新增的方法 flat 拉平数组 参数是拉平的级数
+  newArr = arr.flat(Infinity)
+  return newArr;
+}
+
+
 
